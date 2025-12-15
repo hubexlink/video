@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Title akan diganti otomatis -->
+  <title>Loading...</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 10px;
+    }
+    .container {
+      width: 100%;
+      max-width: 360px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
+    .download-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background-color: #24292e;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="videoTitle"></h1>
+
+    <a id="videoLink" class="download-btn" href="#" target="_blank">
+      ▶︎ WATCH VIDEO
+    </a>
+  </div>
+
+  <!-- SCRIPT OTOMATIS ID -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id") || "idvideoembed"; // default ID
+
+    const videoUrl = `https://cdn.videy.co/${id}.mp4`;
+
+    // Set title
+    document.title = `${id}.mp4`;
+
+    // Set judul tampilan
+    document.getElementById("videoTitle").textContent = `${id}.mp4`;
+
+    // Set link video
+    document.getElementById("videoLink").href = videoUrl;
+  </script>
+
+</body>
+</html>
